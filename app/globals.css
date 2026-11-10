@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f0e6;
+  --foreground: #292d29;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-parchment: #f5f0e6;
+  --color-cream: #ffffff;
+  --color-white: #ffffff;
+  --color-ink: #292d29;
+  --color-muted: #4f524f;
+  --color-gold: #c49a52;
+  --color-gold-deep: #c49a52;
+  --color-chili: #233d32;
+  --color-leaf: #233d32;
+  --color-soil: #233d32;
+  --color-cinnamon: #6c4935;
+  --color-forest: #233d32;
+  --font-sans: var(--font-outfit);
+  --font-serif: var(--font-cormorant);
+  --font-sinhala: var(--font-sinhala);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #c49a52;
+  color: #ffffff;
+}
+
+.font-sinhala {
+  font-family: var(--font-sinhala), sans-serif;
+}
+
+.gold-rule {
+  height: 1px;
+  width: 4.5rem;
+  background: linear-gradient(90deg, #c49a52, transparent);
+}
+
+.gold-rule-center {
+  height: 1px;
+  width: 4.5rem;
+  margin-inline: auto;
+  background: linear-gradient(90deg, transparent, #c49a52, transparent);
 }
