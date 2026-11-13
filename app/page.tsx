@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import PackShot from "@/components/PackShot";
 import { processSteps } from "@/lib/process";
@@ -7,17 +8,6 @@ import { site } from "@/lib/site";
 const featured = featuredSlugs
   .map((slug) => products.find((product) => product.slug === slug))
   .filter((product) => product != null);
-
-const heroPacks = products.filter((product) =>
-  [
-    "chilli-powder",
-    "turmeric-powder",
-    "curry-powder",
-    "meat-curry-powder",
-    "pepper-powder",
-    "kurakkan-flour",
-  ].includes(product.slug),
-);
 
 export default function HomePage() {
   return (
@@ -52,17 +42,15 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-3">
-            {heroPacks.map((product) => (
-              <PackShot
-                key={product.slug}
-                src={product.image}
-                alt={product.name}
-                priority
-                className="aspect-square rounded-[1.2rem]"
-                sizes="(max-width: 768px) 33vw, 16vw"
-              />
-            ))}
+          <div className="relative aspect-[4/5] max-h-[38rem] overflow-hidden rounded-[2rem]">
+            <Image
+              src="/images/hero-spices.jpg"
+              alt="Whole and ground spices — chilli, turmeric, cinnamon, pepper and coriander"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>
@@ -71,7 +59,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 sm:grid-cols-2 lg:grid-cols-4 md:px-8">
           {[
             ["2003", "Established in Sri Lanka"],
-            ["Kurunegala", "Distribute to 300+ Physical stores"],
+            ["North Western", "Distribute to 300+ Physical stores"],
             ["20+ Products", "Chilli, curry, seeds, flour and drinks"],
             ["Trilingual", "Sinhala, English and Tamil on every pouch"],
           ].map(([stat, label]) => (

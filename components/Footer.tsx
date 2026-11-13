@@ -10,8 +10,7 @@ export default function Footer() {
           <Logo light />
           <p className="font-sinhala mt-5 text-sm text-parchment/70">{site.sinhala}</p>
           <p className="mt-4 max-w-sm text-sm leading-7 text-parchment/70">
-            Sri Lankan spices from Bogolla, Hettipola — selected, cleaned,
-            processed and packed since {site.established}.
+            Sri Lankan spices since {site.established}.
           </p>
         </div>
         <div>

@@ -13,8 +13,8 @@ export default function ProductsPage() {
     <>
       <PageHero
         eyebrow="Our products"
-        title="Nineteen packs from the Hettipola spice house."
-        intro="Chilli powders, curry blends, whole seeds, kurakkan flour, sago, coffee and a ginger-coriander drink — each pouch packed in Bogolla with Sinhala, English and Tamil on the label."
+        title="A Taste of Authentic Sri Lanka."
+        intro="From aromatic spices and traditional curry blends to wholesome grains and rich coffee, discover carefully crafted flavours inspired by Sri Lankan heritage."
       />
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
         <ProductCatalog />

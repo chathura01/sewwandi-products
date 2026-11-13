@@ -286,7 +286,7 @@ export const products: Product[] = [
     sinhala: "කෝපි",
     category: "Pantry & drinks",
     description:
-      "Roasted and ground coffee packed for the household jar. A dark, familiar cup from the same Bogolla spice house.",
+      "Roasted and ground coffee packed for the household jar. A dark, familiar cup from the same spice house.",
     ingredients: ["Roasted coffee"],
     sizes: ["20g", "50g"],
     shownSize: "50g",
@@ -299,7 +299,7 @@ export const products: Product[] = [
     sinhala: "ඉඟුරු මිශ්‍ර කොත්තමල්ලි පානය",
     category: "Pantry & drinks",
     description:
-      "A natural ginger and coriander drink mix. Brewed as a warm cup for everyday sipping — 100% natural, as packed in Hettipola.",
+      "A natural ginger and coriander drink mix. Brewed as a warm cup for everyday sipping — 100% natural.",
     ingredients: ["Ginger", "Coriander", "Black pepper"],
     sizes: ["100g"],
     shownSize: "100g",

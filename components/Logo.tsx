@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Logo({
@@ -9,6 +10,25 @@ export default function Logo({
 }) {
   const forest = "#233D32";
   const gold = "#C49A52";
+
+  if (compact) {
+    return (
+      <Link
+        href="/"
+        aria-label="Sewwandi Products"
+        className="group flex items-center"
+      >
+        <Image
+          src="/sewwandi-logo.png"
+          alt="Sewwandi Products"
+          width={1527}
+          height={676}
+          className="h-10 w-auto sm:h-12"
+          priority
+        />
+      </Link>
+    );
+  }
 
   return (
     <Link href="/" className="group flex items-center gap-3">
