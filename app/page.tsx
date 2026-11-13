@@ -73,12 +73,15 @@ export default function HomePage() {
 
       <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:px-8 md:py-28">
         <div className="relative">
-          <PackShot
-            src="/products/chilli-powder.png"
-            alt="Sewwandi Chilli Powder pack"
-            className="aspect-square rounded-[2rem] border border-forest/8"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
+            <Image
+              src="/images/who-we-are.jpg"
+              alt="Hoppers, pol sambol and curry being cooked in a Sri Lankan kitchen"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
           <div className="absolute bottom-5 left-5 max-w-[14rem] rounded-3xl bg-cinnamon px-5 py-5 text-parchment md:left-auto md:right-5">
             <p className="text-[0.68rem] uppercase tracking-[0.2em] text-gold">
               From Hettipola
@@ -104,7 +107,7 @@ export default function HomePage() {
           </p>
           <p className="mt-4 text-lg leading-8 text-muted">
             Chilli powder, curry blends, turmeric, kurakkan flour and coffee all
-            leave under the same green oval — honest packs for ordinary Sri Lankan
+            leave under the same quality standards — honest packs for ordinary Sri Lankan
             meals.
           </p>
           <Link
@@ -194,7 +197,7 @@ export default function HomePage() {
           </div>
           <div className="text-parchment/85">
             <p className="text-lg leading-8">
-              Physical store supply is currently within the Kurunegala District.
+              Physical store supply is currently within the North Western Province.
               Sri Lankans living abroad also buy our products because of the
               quality. We are opening the same packs to hotels and catering.
             </p>

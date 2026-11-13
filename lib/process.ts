@@ -34,9 +34,9 @@ export const processSteps = [
   {
     number: "05",
     title: "Deliver to retail shops",
-    summary: "From Hettipola to shops across Kurunegala.",
+    summary: "From Hettipola to shops across North Western Province.",
     description:
-      "Packed goods leave Bogolla for retail shops within the Kurunegala District. Reliable delivery is part of the product: shops receive fresh stock they can put on the shelf with confidence.",
+      "Packed goods leave Hettipola for retail shops within the North Western Province. Reliable delivery is part of the product: shops receive fresh stock they can put on the shelf with confidence.",
     image: "/products/meat-curry-powder.png",
   },
 ] as const;
