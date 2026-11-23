@@ -81,6 +81,8 @@ export default function ContactForm() {
         <label className="grid gap-2 text-sm">
           <span className="font-medium text-ink">Phone</span>
           <input
+            required
+            type="tel"
             name="phone"
             autoComplete="tel"
             className="rounded-2xl border border-ink/12 bg-parchment px-4 py-3 outline-none ring-gold/40 focus:ring-2"

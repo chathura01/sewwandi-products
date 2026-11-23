@@ -26,9 +26,9 @@ export async function POST(request: Request) {
       ? data.message.replace(/\r\n/g, "\n").trim().slice(0, MESSAGE_LIMIT)
       : "";
 
-  if (!name || !email || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (!name || !email || !phone || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json(
-      { error: "Please add your name, a valid email, and a message." },
+      { error: "Please add your name, a valid email, a phone number, and a message." },
       { status: 400 },
     );
   }
@@ -60,7 +60,7 @@ export async function POST(request: Request) {
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
-        `Phone: ${phone || "—"}`,
+        `Phone: ${phone}`,
         `Interest: ${interest || "—"}`,
         "",
         message,
