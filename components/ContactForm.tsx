@@ -11,10 +11,34 @@ const interests = [
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSent(true);
+    setError("");
+    setSending(true);
+
+    const form = event.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = (await response.json().catch(() => null)) as { error?: string } | null;
+      if (!response.ok) {
+        setError(result?.error || "We could not send your message. Please try again.");
+        return;
+      }
+      setSent(true);
+    } catch {
+      setError("We could not send your message. Please check your connection and try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   if (sent) {
@@ -25,7 +49,7 @@ export default function ContactForm() {
         </p>
         <h3 className="mt-4 font-serif text-3xl text-ink">We will get back to you.</h3>
         <p className="mx-auto mt-4 max-w-md text-muted">
-          Your message has been noted. A member of the Sewwandi Products team
+          Your message has been sent to Sewwandi Products. A member of the team
           will reply about partnership and supply.
         </p>
       </div>
@@ -39,6 +63,7 @@ export default function ContactForm() {
         <input
           required
           name="name"
+          autoComplete="name"
           className="rounded-2xl border border-ink/12 bg-parchment px-4 py-3 outline-none ring-gold/40 focus:ring-2"
         />
       </label>
@@ -49,6 +74,7 @@ export default function ContactForm() {
             required
             type="email"
             name="email"
+            autoComplete="email"
             className="rounded-2xl border border-ink/12 bg-parchment px-4 py-3 outline-none ring-gold/40 focus:ring-2"
           />
         </label>
@@ -56,6 +82,7 @@ export default function ContactForm() {
           <span className="font-medium text-ink">Phone</span>
           <input
             name="phone"
+            autoComplete="tel"
             className="rounded-2xl border border-ink/12 bg-parchment px-4 py-3 outline-none ring-gold/40 focus:ring-2"
           />
         </label>
@@ -82,11 +109,13 @@ export default function ContactForm() {
           placeholder="Tell us about your shop, hotel, or order."
         />
       </label>
+      {error ? <p className="text-sm text-cinnamon">{error}</p> : null}
       <button
         type="submit"
-        className="mt-2 inline-flex justify-center rounded-full bg-forest px-8 py-3.5 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-cinnamon"
+        disabled={sending}
+        className="mt-2 inline-flex justify-center rounded-full bg-forest px-8 py-3.5 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-cinnamon disabled:cursor-wait disabled:opacity-70"
       >
-        Send message
+        {sending ? "Sending…" : "Send message"}
       </button>
     </form>
   );

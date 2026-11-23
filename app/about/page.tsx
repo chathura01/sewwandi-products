@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import PackShot from "@/components/PackShot";
 import PageHero from "@/components/PageHero";
-import { products } from "@/lib/products";
+import ScenePhoto from "@/components/ScenePhoto";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -26,31 +25,22 @@ const values = [
   },
 ];
 
-const aboutPacks = products.filter((product) =>
-  ["chilli-pieces", "turmeric-powder", "coriander", "coffee"].includes(product.slug),
-);
-
 export default function AboutPage() {
   return (
     <>
       <PageHero
         eyebrow="About us"
-        title="A Hettipola spice house since 2003."
+        title="Two Decades of Bringing Authentic Sri Lankan Flavours."
         intro="Sewwandi Products was established in 2003 in Bogolla, Hettipola. For more than two decades we have prepared Sri Lankan spices for kitchens that care how their curry tastes."
       />
 
       <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
-        <div className="grid grid-cols-2 gap-3">
-          {aboutPacks.map((product) => (
-            <PackShot
-              key={product.slug}
-              src={product.image}
-              alt={product.name}
-              className="aspect-square rounded-[1.4rem] border border-forest/8"
-              sizes="(max-width: 768px) 50vw, 25vw"
-            />
-          ))}
-        </div>
+        <ScenePhoto
+          src="/images/about/story.jpg"
+          alt="Sewwandi packs, raw spices, and the packing room beside the paddy fields in Bogolla"
+          className="aspect-video rounded-[1.8rem] border border-forest/8"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
         <div>
           <h2 className="font-serif text-4xl text-ink md:text-5xl">Our story</h2>
           <p className="mt-5 text-lg leading-8 text-muted">
@@ -109,10 +99,10 @@ export default function AboutPage() {
             Contact us
           </Link>
         </div>
-        <PackShot
-          src="/products/goraka.png"
-          alt="Sewwandi Goraka pack"
-          className="min-h-[280px] aspect-square rounded-[1.8rem] border border-forest/8"
+        <ScenePhoto
+          src="/images/about/place.jpg"
+          alt="The road to Bogolla, Hettipola, in Kurunegala District"
+          className="aspect-video rounded-[1.8rem] border border-forest/8"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </section>

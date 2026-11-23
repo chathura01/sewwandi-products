@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import PackShot from "@/components/PackShot";
 import PageHero from "@/components/PageHero";
+import ScenePhoto from "@/components/ScenePhoto";
 import { processSteps } from "@/lib/process";
 
 export const metadata: Metadata = {
@@ -43,10 +43,11 @@ export default function ProcessPage() {
                 key={step.number}
                 className="grid items-center gap-8 md:grid-cols-2 md:gap-14"
               >
-                <PackShot
+                <ScenePhoto
                   src={step.image}
-                  alt={step.title}
-                  className={`aspect-square rounded-[1.8rem] border border-forest/8 ${reverse ? "md:order-2" : ""}`}
+                  alt={step.alt}
+                  position={step.position}
+                  className={`aspect-video rounded-[1.8rem] border border-forest/8 ${reverse ? "md:order-2" : ""}`}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className={reverse ? "md:order-1" : ""}>

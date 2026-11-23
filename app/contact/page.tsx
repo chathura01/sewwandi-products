@@ -14,7 +14,7 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact us"
-        title="Write to the spice house in Bogolla."
+        title="We're Just a Message Away."
         intro="Ask about shop supply in Kurunegala, hotel and catering packs, or spices for family overseas. We read every message."
       />
 
